@@ -59,6 +59,12 @@ namespace AzureBlobDotNetCoreWebApp.Controllers
         public ActionResult UploadImage(IFormFile file)
         {
             string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            int imageCount = (from r in _db.UserImages where r.ApplicationUserId == loggedInUserId select r).Count();
+            if (imageCount >= 10)
+            {
+                return RedirectToAction("Index");
+            }
+
             if (file != null)
             {
                 using (var reader = new StreamReader(file.OpenReadStream()))
@@ -66,7 +72,7 @@ namespace AzureBlobDotNetCoreWebApp.Controllers
                     var fileContent = reader.BaseStream;
                     var parsedContentDisposition = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
                     string fileName = parsedContentDisposition.FileName;
-                    var result = utility.UploadBlob(fileName, _config["BlobDetails:ContainerName"], fileContent);                    
+                    var result = utility.UploadBlob(fileName, _config["BlobDetails:ContainerName"], fileContent);
                     if (result != null)
                     {
                         UserImage userimage = new UserImage();
