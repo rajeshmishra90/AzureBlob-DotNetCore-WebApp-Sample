@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AzureBlobDotNetCoreWebApp/.vs/AzureBlobDotNetCoreWebApp/v14/.suo
+/AzureBlobDotNetCoreWebApp/.vs/config/applicationhost.config
+/AzureBlobDotNetCoreWebApp/.vs/AzureBlobDotNetCoreWebApp/v14/.suo
+/AzureBlobDotNetCoreWebApp/.vs/config/applicationhost.config
+/AzureBlobDotNetCoreWebApp/src/AzureBlobDotNetCoreWebApp/Properties/PublishProfiles
+/AzureBlobDotNetCoreWebApp/src/AzureBlobDotNetCoreWebApp/obj
+/AzureBlobDotNetCoreWebApp/src/AzureBlobDotNetCoreWebApp/bin
